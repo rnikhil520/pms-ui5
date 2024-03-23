@@ -1,0 +1,106 @@
+<mvc:View controllerName="pmsopenui5test.pmsopenui5test.controller.View2"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:fb="sap.ui.comp.filterbar"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m">
+	<Page id="page" title="View Patients">
+		<Panel headerText="Search Patients" expandable="true" width="auto" class="sapUiResponsiveMargin">
+			<content>
+				<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search="onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+					<fb:filterGroupItems>
+						<fb:FilterGroupItem name="Carrid" label="Mobile No" groupName="Group1" visibleInFilterBar="true">
+							<fb:control>
+								<!-- <Select id="in21" autoAdjustWidth="true" items= "{/ScarrSet}" change="onLiveChangeAirline">
+									<items>
+										<core:Item key="" text="" />
+										<core:Item key="{Carrid}" text="{Carrname}"></core:Item>
+									</items>
+								</Select> -->
+								<!-- <ComboBox id="in21"
+									filterSecondaryValues="false"
+									selectedItemId="empty string"
+									selectedKey="empty string"
+									change="onLiveChangeAirline">
+									<items>
+											
+									</items>
+								</ComboBox> -->
+								<Input value="{patient>/MOBNO}" id="mobno" width="300px" liveChange="onChangeMobNo"  type="Number"  />
+							</fb:control>
+						</fb:FilterGroupItem>
+						<fb:FilterGroupItem name="First Name" label="First Name" groupName="Group1" visibleInFilterBar="true">
+							<fb:control>
+								<!-- <ComboBox id="in22"
+								filterSecondaryValues="false"
+								selectedItemId="empty string"
+								selectedKey="empty string"
+								change="onLiveChangeAirline">
+								<items>
+										
+								</items>
+							</ComboBox> -->
+							<Input value="{patient>/FNAME}" id="fname" width="300px" liveChange="onChangeFName"/>
+							</fb:control>
+						</fb:FilterGroupItem>
+						<fb:FilterGroupItem name="Last Name" label="Last Name" groupName="Group1" visibleInFilterBar="true">
+							<fb:control>
+								<!-- <ComboBox id="in23"
+								filterSecondaryValues="false"
+								selectedItemId="empty string"
+								selectedKey="empty string"
+								change="onLiveChangeAirline">
+								<items>
+										
+								</items>
+							</ComboBox> -->
+							<Input value="{patient>/LNAME}" id="lname" width="300px" liveChange="onChangeLName" />
+							</fb:control>
+						</fb:FilterGroupItem>
+					</fb:filterGroupItems>
+				</fb:FilterBar>
+
+			</content>
+		</Panel>
+		<content>
+			<!-- <Panel headerText="Airline Schedule Details" class="sapUiTinyMargin"> -->
+			<Panel headerText="Patients Found" expandable="false" width="auto" class="sapUiResponsiveMargin">
+				<VBox class="sapUiTinyMargin">
+					<Table id="idPatientTable" class="sapUiResponsiveLayout" items="{patients>/patient}" growingThreshold="10">
+						<infoToolbar>
+							<OverflowToolbar>
+								<Label text="Patients" />
+								<ToolbarSpacer />
+								<Button id="ref1" text="Refresh" press="onPressRF" icon="sap-icon://refresh" tooltip="Refresh"  enabled="{Refbutton>/enable}" />
+							</OverflowToolbar>
+						</infoToolbar>
+						<columns>
+							<Column width="12em">
+								<Text text="Patient ID" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="First Name" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="Last Name" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="Mobile No" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Active" press="onRowPress" vAlign="Middle">
+								<cells>
+									<Text text="{patients>PID}" />
+									<Text text="{patients>FNAME}" />
+									<Text text="{patients>LNAME}"/>
+									<Text text="{patients>MOBNO}" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</VBox>
+			</Panel>
+		</content>
+	</Page>
+</mvc:View>

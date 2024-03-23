@@ -1,0 +1,24 @@
+<mvc:View controllerName="pmsopenui5test.pmsopenui5test.controller.View_Main"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns="sap.m">
+	<Page id="page" title="Patient Management Home">
+		<Panel headerText="Welcome to Patient Manager" class="sapUiResponsiveMargin" width="auto">
+			<VBox class="sapUiSmallMargin">
+				<l:Grid containerQuery="true" defaultSpan="L2 M6 S12">
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Create Patient" subheader="Create patient in system" press="CreatePatient" url="https://www.sap.com/">
+						<TileContent>
+							<ImageContent src="sap-icon://flight" />
+						</TileContent>
+					</GenericTile>
+					<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="View Patient" subheader="Search a Patient" press="ViewPatient" url="https://www.sap.com/">
+						<TileContent>
+							<ImageContent src="sap-icon://retail-store-manager" />
+						</TileContent>
+					</GenericTile>
+				</l:Grid>
+			</VBox>
+		</Panel>
+	</Page>
+</mvc:View>
